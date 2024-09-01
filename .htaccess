@@ -1,0 +1,17 @@
+RewriteEngine On 				# Vklopi 'rewriting engine'
+
+#RewriteRule ^igralci/?$ igralci.php [NC,L]						# če gre za zahtevek na relativni URL '/igralci' ga spremeni v 'igralci.php'
+#RewriteRule ^igralci/(.+)/?$ igralci.php?vzdevek=$1 [NC,L] 	# preslika vzorec 'igralci/xxxx' v 'igralci.php?vzdevek=xxxx' 
+
+RewriteRule ^user/?$ user.php [NC,L]
+					
+RewriteRule ^user/(.+)/profiles/(.+)/?$ profiles.php?user=$1&profile=$2 [NC] 	
+RewriteRule ^user/(.+)/profiles/?$ profiles.php?user=$1 [NC] 	
+RewriteRule ^user/(.+)/?$ user.php?user=$1 [NC]		
+
+
+# Onemogočimo direkten dostop do orodja.php
+<Files orodja.php>
+Order allow,deny
+Deny from all
+</Files>

@@ -1,0 +1,256 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    background-image: url("./IMG/Image.jpg");
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 30;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Navigation Bar Styling */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+   
+}
+
+ul li {
+    margin: 0 10px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+ul li a:hover, ul li a.active {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+
+/* Content Styling */
+.content {
+    width: 95%;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
+}
+
+.volume-label {
+    font-weight: bold;
+    color: #555;
+    margin-right: 10px;
+}
+
+.slider-meter-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.slider-meter-container input[type="range"] {
+    width: 80%;
+    margin-right: 10px;
+}
+
+.meter {
+    width: 10px;
+    height: 100px;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.eq-toggle {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
+}
+
+.eq-toggle:hover {
+    background-color: #45a049;
+}
+
+.eq-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.drum-machine {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.drum-pad {
+    background-color: #000000ea;
+    color: white;
+    border: none;
+    padding: 15px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    transition: background-color 0.3s ease;
+}
+
+.drum-pad:hover {
+    background-color: #45a049;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.controls button {
+    background-color: #000000ee;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.controls button:hover {
+    background-color: #45a049;
+}
+
+.controls button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Sequencer Grid Styling */
+.sequencer-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sequencer-row {
+    display: grid;
+    grid-template-columns: repeat(16, 40px);
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.eq-dropdown {
+    display: none;
+    flex-direction: column; /* Ensure EQ sliders stack vertically */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.sequencer-step {
+    width: 40px;
+    height: 40px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sequencer-step.active {
+    background-color: #4CAF50;
+}
+
+.tempo-control {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tempo-control label {
+    margin-right: 10px;
+}
+
+.tempo-control input {
+    width: 100px;
+}

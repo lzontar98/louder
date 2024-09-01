@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Prikaz podatkov</title>
+		
+		<script type="text/javascript">
+			function pridobiPodatke() {
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", "backend/podatki.php");	// vpisemo URL nekega vira v API-ju zaledja
+
+				xhr.setRequestHeader("Accept", "application/json");
+				
+				// Iz lokalne shrambe pridobimo shranjen zeton in ga vstavimo v zaglavje (header) HTTP sporocila v polje Authorization
+				// Vrsta avtentikacije - 'Bearer' - je primerna za prenasanje zetonov
+				xhr.setRequestHeader("Authorization", "Bearer " + window.localStorage.getItem("access_token"));
+				xhr.setRequestHeader("Identification", "user " + window.localStorage.getItem("user"));
+
+				xhr.onreadystatechange = function () {
+				   if (xhr.readyState === 4) {
+					  document.getElementById("prikaz").innerHTML = xhr.responseText;
+				   }};
+
+				xhr.send();
+			}
+			
+			function odjava() {
+				window.localStorage.removeItem('access_token');
+				window.localStorage.removeItem('user');
+			}
+			
+			// Funkcija je namenjena prilagoditvi vsebine strani glede na to, ali je uporabnik ze prijavljen ali se ne.
+			/*function oPrijavi() {
+				var zeton = window.localStorage.getItem('access_token');
+				if(zeton != null && zeton != ""){
+					document.getElementById("oPrijavi").innerHTML = "Prijavljen z žetonom: " + window.localStorage.getItem("access_token");
+					document.getElementById("odjava").style.display = "inline";
+					document.getElementById("pridobiPodatke").innerHTML = "Pridobi podatke";
+				}
+				else{
+					document.getElementById("oPrijavi").innerHTML = 'Nisi prijavljen! <a href="login.html">Prijavi se!</a>';
+					document.getElementById("odjava").style.display = "none";
+					document.getElementById("pridobiPodatke").innerHTML = "Vseeno pridobi podatke";
+				}
+			} */
+
+			function handleBackNavigation() {
+				window.history.forward(); // Prevent going back
+				window.onunload = function () {
+					localStorage.removeItem('access_token'); // Clear token on unload
+					localStorage.removeItem('user');
+					window.location.href = 'index.html'; // Redirect to login page
+				};
+			}
+			
+		</script>
+	</head>
+	<body onload="oPrijavi(); handleBackNavigation();">
+
+		<div id="oPrijavi"></div>
+		<a href="index.html" onclick = "odjava()" id="odjava" style="display:none">Odjavi se</a><hr>
+		<button onclick="pridobiPodatke()" id="pridobiPodatke"></button>
+		<div id="prikaz"></div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prijava</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="UIlogin.css">
+    <script src="./js/login.js" defer></script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <h1>Louder Please</h1>
+        
+        <!-- Login Form -->
+        <form id="prijava" onsubmit="prijava(); return false;">
+            <input type="text" id="upime" placeholder="Uporabniško ime" required />
+            <input type="password" id="geslo" placeholder="Geslo" required />
+            <input type="submit" value="Prijava" />
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="signupForm" style="display:none;" onsubmit="signup(event);">
+            <input type="text" id="newUsername" placeholder="New Username" required />
+            <input type="password" id="newPassword" placeholder="New Password" required />
+            <input type="submit" value="Sign Up" />
+        </form>
+
+        <!-- Sign Up and Back to Login Toggle Buttons -->
+        <button id="signupButton" onclick="toggleSignup()">Sign Up</button>
+        <button id="backToLoginButton" style="display:none;" onclick="toggleLogin()">Back to Login</button>
+        
+        <!-- Link to Data Display Page -->
+        <a href="prikazPodatkov.html" id="naPrikazPodatkov"></a>
+    </div>
+</body>
+
+</html>
