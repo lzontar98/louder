@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function odjava() {
         window.localStorage.removeItem('access_token');
         window.localStorage.removeItem('user');
-        window.location.href = "login.html"; // Redirect to login page after logout
+        window.location.href = "index.html"; // Redirect to login page after logout
     }
 
     // Function to fetch and set slider values based on user and profile
