@@ -1,1 +1,5 @@
-Vse datoteke za desktop aplikacijo se nahajajo v dist mapi
+Datoteke za desktop aplikacijo so bile poslane preko google drive.
+
+Priložena tudi SQL databaza
+
+
